@@ -12,6 +12,12 @@ export default class Building {
   }
 
   evacuationWarningMessage() {
-    throw new Error("Abstract method 'evacuationWarningMessage' must be implemented.");
+    if (this.evacuationWarningMessage === Building.prototype.evacuationWarningMessage) {
+      throw new Error("Abstract method 'evacuationWarningMessage' must be implemented.");
+    }
+  }
+
+  get sqft() {
+    return this._sqft;
   }
 }
