@@ -1,5 +1,4 @@
 export default function cleanSet(set, start) {
-
   let out = '';
 
   for (const str of set) {
