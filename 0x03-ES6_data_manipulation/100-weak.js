@@ -5,7 +5,7 @@ export function queryAPI(endpoint) {
     throw new Error('Endpoint load is high');
   } else if (val > 0) {
     weakMap.set(endpoint, val + 1);
-  } else {
+  } else if(endpoint.hasOwnProperty('protocol') && endpoint.hasOwnProperty('name')){
     weakMap.set(endpoint, 1);
   }
 }
