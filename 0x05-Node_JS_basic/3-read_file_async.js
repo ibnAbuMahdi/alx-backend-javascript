@@ -22,9 +22,9 @@ function countStudents(path) {
             count += 1;
           }
         }
-        console.log("Number of students: "+count);
+        console.log(`Number of students: ${count}`);
         for (const field of Object.keys(summary)) {
-          console.log("Number of students in "+field+": "+summary[field].length+". List: "+summary[field].join(', '));
+          console.log(`Number of students in ${field}: ${summary[field].length}. List: ${summary[field].join(', ')}`);
         }
         resolve();
       }
