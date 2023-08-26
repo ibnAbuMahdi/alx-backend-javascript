@@ -41,7 +41,7 @@ describe("Index Route", () => {
     const options = {
       hostname: hostname,
       port: port,
-      path: `/cart/${cartId}`,
+      path: "/cart/"+cartId,
       method: "GET",
     };
 
