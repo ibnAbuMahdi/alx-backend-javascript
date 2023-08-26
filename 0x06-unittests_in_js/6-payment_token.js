@@ -3,8 +3,7 @@ function getPaymentTokenFromAPI(success) {
     return new Promise((resolve) => {
             resolve({ data: 'Successful response from the API' });
     });
-  }
-  return
+  } else { done();}
 }
 
 module.exports = getPaymentTokenFromAPI
