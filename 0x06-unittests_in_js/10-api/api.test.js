@@ -1,9 +1,10 @@
 const http = require("http");
 const app = require("./api"); // Assuming your Express server file is named "index.js"
 const chai = require("chai");
-const expect = chai.expect
+const assert = chai.assert
 const hostname = "localhost";
 const port = 7865;
+const express = require('express');
 
 
 
@@ -67,7 +68,6 @@ describe("Cart Page Route", () => {
       });
     });
 
-    req.write(JSON.stringify({ userName }));
-    req.end();
+    req.end(express.json({ "userName": userName}));
   });
 });
