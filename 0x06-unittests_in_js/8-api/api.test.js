@@ -1,16 +1,37 @@
+const http = require("http");
+const app = require("./api"); // Assuming your Express server file is named "index.js"
 const chai = require("chai");
-const expect = chai.expect;
-const request = require("request");
-const chaiA = require("chai-as-promised");
-chai.use(chaiA);
+const expect = chai.expect
+const hostname = "localhost";
+const port = 7865;
 
-describe("Index page", function(){
-	it("should test express server", function(){
-		request("localhost/7865", function(err, r, body){
-		expect(r).to.eventually.have.property("status");
-		expect(body).to.eventually.be.type("string");
-		});
+describe("Index Route", () => {
+  it("should return a welcome message", (done) => {
+    const options = {
+      hostname: hostname,
+      port: port,
+      path: "/",
+      method: "GET",
+    };
+
+    const req = http.request(options, (res) => {
+      let data = "";
+
+      res.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      res.on("end", () => {
+        expect(res.statusCode).to.equal(200);
+        expect(data).to.equal("Welcome to the payment system");
+        done();
+      });
+    });
+
+    req.on("error", (error) => {
+      done(error);
+    });
+
+    req.end();
+  });
 });
-
-});
-
