@@ -17,8 +17,10 @@ describe('Express App', () => {
           expect(res).to.have.status(200);
           expect(res.text).to.equal('Welcome to the payment system');
           done();
+	  process.exit(0);
         });
     });
+	  
   });
 });
 

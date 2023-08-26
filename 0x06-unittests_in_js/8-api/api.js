@@ -5,6 +5,7 @@ const port = 7865;
 
 app.get("/", (req, res) => {
 	res.send("Welcome to the payment system");
+	res.end();
 });
 
 app.listen(port, () => {
