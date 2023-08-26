@@ -1,6 +1,6 @@
-import fs from 'fs';
+const fs = require('fs');
 
-export default function readDatabase(path) {
+function readDatabase(path) {
   return new Promise((resolve, reject) => {
     let entries = [];
     fs.readFile(path, 'utf-8', (err, data) => {
@@ -25,3 +25,4 @@ export default function readDatabase(path) {
     });
   });
 }
+module.exports = readDatabase;
